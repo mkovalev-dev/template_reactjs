@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Prettify code
         uses: creyD/prettier_action@v4.2
-        with:
-          prettier_options: --write **/*.{js,jsx,md}
+#        with:
+#          prettier_options: --write **/*.{js,jsx,md}
