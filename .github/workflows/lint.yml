@@ -1,4 +1,4 @@
-name: Lint
+name: Lint and Tests
 on: push
 
 jobs:
@@ -9,9 +9,20 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci # or yarn install
+      - run: npm ci
       - uses: sibiraj-s/action-eslint@v2
         with:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      name: Run Tests
+      run: |
+        npm ci
+        npm test
