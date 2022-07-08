@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+
 import BasicPathConstants from "./utils/constants/routesConst";
 
 function App() {
