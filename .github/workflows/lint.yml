@@ -17,17 +17,17 @@ jobs:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
-  test:
+
+  tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      name: Run Tests
-      run: |
-        npm ci
-        npm test
+      - run: |
+          npm ci
+          npm test
 
   tag:
     needs: update_docker
