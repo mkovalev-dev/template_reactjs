@@ -10,5 +10,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci # or yarn install
-      - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+      - uses: sibiraj-s/action-eslint@v2
+        with:
+          eslint-args: '--ignore-path=.gitignore --quiet'
+          extensions: 'js,jsx,ts,tsx'
+          annotations: true
