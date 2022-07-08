@@ -19,6 +19,7 @@ jobs:
           annotations: true
 
   tests:
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,7 +31,7 @@ jobs:
           npm test
 
   tag:
-    needs: update_docker
+    needs: tests
     name: Tag
     runs-on: ubuntu-latest
     steps:
